@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Kota Bandung - Paris van Java</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004080;
+            --accent-color: #e6f2ff;
+            --text-color: #333333;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-container img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-container h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s, border-bottom 0.3s;
+            padding: 5px 10px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            border-bottom: 2px solid white;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0, 102, 204, 0.8), rgba(0, 64, 128, 0.8)), url('assets/image/history.jpg') center/cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem 2rem 1rem;
+        }
+
+        /* Article Sections */
+        article {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        article h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .wisata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .wisata-card {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .wisata-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .wisata-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .wisata-card-content {
+            padding: 1rem;
+        }
+
+        .wisata-card-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sidebar Content */
+        aside {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .sidebar-badge {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-badge img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-badge h3 {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        footer img {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo-container">
+            <img src="assets/image/bandung-badge.png" alt="Logo Bandung">
+            <h1>Kota Bandung</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#sejarah">Sejarah</a></li>
+                <li><a href="#geografis">Geografis</a></li>
+                <li><a href="#wisata">Wisata</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h2>Selamat Datang di Kota Bandung</h2>
+        <p>Kota Kembang, Paris van Java</p>
+    </section>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        
+        <!-- Main Article Content -->
+        <main>
+            <!-- Sejarah Section -->
+            <article id="sejarah">
+                <h2>Sejarah</h2>
+                <img src="assets/image/history.jpg" alt="Sejarah Bandung" class="article-img">
+                <p>Kata Bandung berasal dari kata bandung atau bandungan yang artinya berdampingan. Berdasarkan filosofi Sunda, kata Bandung juga berasal dari kalimat "Ngabandungan Banda Indung", yang mempunyai arti bernilai sakral dan agung tempat bersemayamnya segala daya ikhtiar.</p>
+                <p>Kota Bandung secara resmi mendapat status <i>gemeente</i> (kota) dari pemerintah Kolonial Hindia Belanda pada tanggal 25 April 1906. Kota ini berkembang menjadi pusat pendidikan dan pariwisata sejak era kolonial.</p>
+            </article>
+
+            <!-- Geografis Section -->
+            <article id="geografis">
+                <h2>Geografis</h2>
+                <img src="assets/image/geografis.jpg" alt="Geografis Bandung" class="article-img">
+                <p>Kota Bandung dikelilingi oleh pegunungan, sehingga bentuk morfologi wilayahnya menyerupai sebuah mangkok raksasa. Secara geografis, kota ini terletak di tengah-tengah provinsi Jawa Barat.</p>
+                <p>Ketinggian Kota Bandung berada pada ±768 meter di atas permukaan laut (mdpl), yang menyebabkan iklim udara di kota ini cenderung sejuk dan nyaman sepanjang tahun.</p>
+            </article>
+
+            <!-- Wisata Section -->
+            <article id="wisata">
+                <h2>Wisata</h2>
+                <p>Kota Bandung terkenal dengan destinasi wisata alam, edukasi, dan budayanya yang sangat menarik.</p>
+                
+                <div class="wisata-grid">
+                    <!-- Farm House Lembang -->
+                    <div class="wisata-card">
+                        <img src="assets/image/farm-house.jpg" alt="Farm House Lembang">
+                        <div class="wisata-card-content">
+                            <h3>Farm House Lembang</h3>
+                            <p>Destinasi wisata dengan suasana pedesaan bergaya Eropa, tempat spot foto menarik, dan interaksi dengan hewan ternak.</p>
+                        </div>
+                    </div>
+
+                    <!-- Observatorium Bosscha -->
+                    <div class="wisata-card">
+                        <img src="assets/image/bosscha.jpg" alt="Observatorium Bosscha">
+                        <div class="wisata-card-content">
+                            <h3>Observatorium Bosscha</h3>
+                            <p>Pusat peneropongan bintang tertua di Indonesia yang menyajikan edukasi astronomi dan sejarah ilmu pengetahuan.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <!-- Sidebar Content -->
+        <aside>
+            <div class="sidebar-badge">
+                <img src="assets/image/bandung-badge.png" alt="Bandung Badge">
+                <h3>Kota Bandung</h3>
+                <p><i>Kota Kembang - Paris van Java</i></p>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <img src="assets/image/bandung-badge.png" alt="Lambang Bandung">
+        <p>Belajar Dasar Pemrograman Web &#169; 2019, Dicoding Academy.</p>
+    </footer>
+
+</body>
+</html>
